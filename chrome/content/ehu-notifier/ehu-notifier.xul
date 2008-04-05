@@ -55,7 +55,6 @@
 		</popupset>
 	</window>
 
-
 	<statusbar id="status-bar">
 		<popupset id="tip-popupset">
 			<tooltip id="tipbox" orient="vertical" style="background-color:#33DD00;">
@@ -72,5 +71,5 @@
 			<label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
 		</statusbarpanel>
 	</statusbar>
-
+	
 </overlay>

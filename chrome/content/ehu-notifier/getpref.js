@@ -38,38 +38,43 @@ var gPass;
 var gServer;
 var gLang;
 var gInterval;
-var gPrefManager;
-var gPassManager;
 const URL = "chrome://ehu-notifier/";
 
 function getPref() {
     dump("--- GETPREF ---\n");
     
     // get the preferences
-    gPrefManager = Components.classes["@mozilla.org/preferences-service;1"]
+    var prefManager = Components.classes["@mozilla.org/preferences-service;1"]
                   .getService(Components.interfaces.nsIPrefBranch);
-    gUser = gPrefManager.getCharPref("extensions.ehu-notifier.username");            
-    gServer = gPrefManager.getCharPref("extensions.ehu-notifier.server");
-    gInterval =	gPrefManager.getIntPref("extensions.ehu-notifier.interval");
-    lang = gPrefManager.getCharPref("general.useragent.locale"); 
+    gUser = prefManager.getCharPref("extensions.ehu-notifier.username");            
+    gServer = prefManager.getCharPref("extensions.ehu-notifier.server");
+    gInterval =	prefManager.getIntPref("extensions.ehu-notifier.interval");
+	
+	//var lang = prefManager.getIntPref("general.useragent.locale");
+    var sBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
+						 .getService(Components.interfaces.nsIStringBundleService);
+    var bundle = sBundleService.createBundle("chrome://global/locale/intl.properties");
+    var lang = bundle.GetStringFromName("general.useragent.locale");
+	dump("lang: " + lang + "\n");
 	if(lang.match(/^es/)) {
 		gLang = "spa";
-	}
-	else if(lang.match(/^eu/)) {
+    }
+    else if(lang.match(/^eu/)) {
 		gLang = "eus";
-	}
-	else if(lang.match(/^en/)) {
+    }
+    else if(lang.match(/^en/)) {
 		gLang = "eng";
-	}
+    }
 
     // get the password from password manager
-    gPassManager = Components.classes["@mozilla.org/passwordmanager;1"].createInstance();
-    if (gPassManager) {
-		var passManagerInt = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
+    var passManager = Components.classes["@mozilla.org/passwordmanager;1"]
+					  .createInstance();
+    if (passManager) {
+		var passManagerInt = passManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
     }	      
-		var tempHost = new Object();
-		var tempUser = new Object();
-		var tempPass = new Object();
+	var tempHost = new Object();
+	var tempUser = new Object();
+	var tempPass = new Object();
     try {
     	passManagerInt.findPasswordEntry(URL, gUser, "", tempHost, tempUser, tempPass);
     	gPass = tempPass.value;

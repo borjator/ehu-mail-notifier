@@ -5,7 +5,7 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
 	    <em:id>{432a7a5f-1913-4380-b6a3-8bdc7519ff97}</em:id>
 	    <em:name>EHU Mail Notifier</em:name>
-	    <em:version>0.7.1</em:version>
+	    <em:version>0.7.2</em:version>
 	    <em:description>A notifier for EHU mail accounts.</em:description>
 	    <em:creator>Borja Tornero</em:creator>
 	    <em:homepageURL>http://itsas.ehu.es/contribs/ehu_mail_notifier</em:homepageURL>
