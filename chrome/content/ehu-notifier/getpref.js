@@ -57,16 +57,11 @@ function getPref() {
 						 .getService(Components.interfaces.nsIStringBundleService);
     var bundle = sBundleService.createBundle("chrome://global/locale/intl.properties");
     var lang = bundle.GetStringFromName("general.useragent.locale");
+	gLang = lang.replace(/-/, "_");
+	if(gLang == "eu") {
+		gLang = "eu_ES";
+	}
 	dump("lang: " + lang + "\n");
-	if(lang.match(/^es/)) {
-		gLang = "spa";
-    }
-    else if(lang.match(/^eu/)) {
-		gLang = "eus";
-    }
-    else if(lang.match(/^en/)) {
-		gLang = "eng";
-    }
 
     // get the password from password manager
     gPassManager = Components.classes["@mozilla.org/passwordmanager;1"]

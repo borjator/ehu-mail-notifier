@@ -60,6 +60,7 @@
 			<tooltip id="tipbox" orient="vertical" style="background-color:#33DD00;">
 				<hbox id="htip">
 					<image src="chrome://ehu-notifier/skin/ehun_e.png" width="32" height="32"/> 
+					<description id="space" value=""/>
 					<description id="msg" value=""/>
 				</hbox>
 			</tooltip>

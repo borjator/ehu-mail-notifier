@@ -5,14 +5,14 @@ xmlns:em="http://www.mozilla.org/2004/em-rdf#">
     <Description about="urn:mozilla:install-manifest">
 	    <em:id>{432a7a5f-1913-4380-b6a3-8bdc7519ff97}</em:id>
 	    <em:name>EHU Mail Notifier</em:name>
-	    <em:version>0.7.3</em:version>
+	    <em:version>0.8.0-rc1</em:version>
 	    <em:description>A notifier for EHU mail accounts.</em:description>
 	    <em:creator>Borja Tornero</em:creator>
-	    <em:homepageURL>http://itsas.ehu.es/contribs/ehu_mail_notifier</em:homepageURL>
+		<em:homepageURL>http://code.google.com/p/ehu-mail-notifier</em:homepageURL>
 	    <em:iconURL>chrome://ehu-notifier/skin/ehun_e.png</em:iconURL>
 	    <em:optionsURL>chrome://ehu-notifier/content/options.xul</em:optionsURL>
 	    <em:aboutURL>chrome://ehu-notifier/content/about.xul</em:aboutURL>
-	    <em:updateURL>http://itsas.ehu.es/downloads/firefox/update.rdf</em:updateURL>
+		<em:updateURL>http://ehu-mail-notifier.googlecode.com/files/update.rdf</em:updateURL>
 	    <em:file>
 		<Description
 		about="urn:mozilla:extension:file:ehu-notifier.jar">

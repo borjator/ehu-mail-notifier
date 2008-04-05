@@ -50,7 +50,7 @@
 			<label value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
 			<hbox>
 				<label value="&version.text;" style="color: grey;"/>
-				<label value="0.7.3" style="color: grey;"/>
+				<label value="0.8.0-rc1" style="color: grey;"/>
 			</hbox>
 			<separator class="thin"/>    
 			<label value="&whatis.text;"/>
@@ -63,8 +63,8 @@
 			</hbox>	
 			<separator class="thin"/>
 			<label value="&homepage.text;" style="font-weight: bold;"/>
-			<label value="http://itsas.ehu.es/contribs/ehu_mail_notifier"
-				class="text-link" href="http://itsas.ehu.es/contribs/ehu_mail_notifier"/>
+			<label value="http://code.google.com/p/ehu-mail-notifier"
+				class="text-link" href="http://code.google.com/p/ehu-mail-notifier"/>
 			<separator class="thin"/>
 		</vbox>
 		<spring flex="1"/>
