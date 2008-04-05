@@ -51,7 +51,7 @@ function ehunCheck() {
 				// Get the url of the inbox page
 				if (htmldoc.search(/cclient/) != -1) {
 					var indexA = htmldoc.search(/cclient/);
-					var indexB = htmldoc.search(/mail/);
+					var indexB = htmldoc.search(/mail.gif/);
 					var subUrl = htmldoc.substring(indexA, indexB);
 					if (subUrl.search(/default/) != -1) {
 						subUrl = htmldoc.substring(indexA, indexB - 44);
