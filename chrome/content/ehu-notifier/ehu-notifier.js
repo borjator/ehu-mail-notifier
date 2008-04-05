@@ -32,6 +32,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+// globals
 var gParam;
 var gUrl;
 
@@ -40,162 +41,157 @@ function ehunCheck() {
     
     getPref();
     if (gUser != "") {
-	httpReq = new XMLHttpRequest();
-	httpReq.open('POST', 'https://www.ehu.es/cgi-bin/postman', true);
-	httpReq.onreadystatechange = function () {
-	    if (httpReq.readyState == 4) 
-		if (httpReq.status == 200) {
-		    htmldoc = new String(httpReq.responseText);
+		// asynchronous xml http request
+		var httpReq = new XMLHttpRequest();
+		httpReq.open('POST', 'https://www.ehu.es/cgi-bin/postman', true);
+		httpReq.onreadystatechange = function () {
+			if (httpReq.readyState == 4 && httpReq.status == 200) {
+				var htmldoc = new String(httpReq.responseText);
 	        
-			// Get the url of the inbox page
-		    if (htmldoc.search(/cclient/) != -1) {
-				indexA = htmldoc.search(/cclient/);
-				indexB = htmldoc.search(/mail/);
-				subUrl = htmldoc.substring(indexA, indexB);
-				if (subUrl.search(/default/) != -1) {
-					subUrl = htmldoc.substring(indexA, indexB - 44);
-				}
-				else {
-					subUrl = htmldoc.substring(indexA, indexB - 41);
-				}
-		        gUrl = "https://www.ehu.es/cgi-bin/postman/" + subUrl;
-				dump("URL: " + gUrl + "\n");
-		    }	
+				// Get the url of the inbox page
+				if (htmldoc.search(/cclient/) != -1) {
+					var indexA = htmldoc.search(/cclient/);
+					var indexB = htmldoc.search(/mail/);
+					var subUrl = htmldoc.substring(indexA, indexB);
+					if (subUrl.search(/default/) != -1) {
+						subUrl = htmldoc.substring(indexA, indexB - 44);
+					}
+					else {
+						subUrl = htmldoc.substring(indexA, indexB - 41);
+					}
+					gUrl = "https://www.ehu.es/cgi-bin/postman/" + subUrl;
+					dump("URL: " + gUrl + "\n");
+				}	
 
-		    if ( gLang == "spa") {
-				search = htmldoc.search(/Correo/);
-				s2 = htmldoc.substring(search);
-				p0 = s2.search(/\(/);
-				p1 = s2.search(/\)/);
-				msg = s2.slice(p0 + 1, p1);
-				msg = msg.replace("&iacute;", "í");
+				var s1 = htmldoc.search(/Correo/);
+				var s2 = htmldoc.substring(s1);
+				var p1 = s2.search(/\(/);
+				var p2 = s2.search(/\)/);
+				var msg = s2.slice(p1 + 1, p2);
+				var num = 0;
 
-				if (htmldoc.search(/No tienes/) != -1) {
-					num = 0;
-				}    
-				else {
-					pos = htmldoc.search(/Tienes/);
-					num = htmldoc.charAt(pos +  7);
-				}
-		    }
-		    else if (gLang == "eus") {
-				search = htmldoc.search(/Correo/);
-				s2 = htmldoc.substring(search);
-				p0 = s2.search(/\(/);
-				p1 = s2.search(/\)/);
-				msg = s2.slice(p0 + 1, p1);
+				// Spanish
+				if (gLang == "spa") {
+					msg = msg.replace("&iacute;", "í");
 
-				if (htmldoc.search(/Ez/) != -1) {
-					num = 0;
-				}    
-				else if (htmldoc.search(/bat/) != -1) {
-					num = 1;
+					if (htmldoc.search(/No tienes/) == -1) {
+						var position = htmldoc.search(/Tienes/);
+						num = htmldoc.charAt(position + 7);
+					}
 				}
-				else {
-					pos = htmldoc.search(/mezu/);
-					num = htmldoc.charAt(pos - 2);
+				// Basque
+				else if (gLang == "eus") {
+					if (htmldoc.search(/bat/) != -1) {
+						num = 1;
+					}
+					else if (htmldoc.search(/Ez/) == -1) {
+						var position = htmldoc.search(/mezu/);
+						num = htmldoc.charAt(position - 2);
+					}
 				}
-		    }
-		    else if (gLang == "eng") {
-				search = htmldoc.search(/Correo/);
-				s2 = htmldoc.substring(search);
-				p0 = s2.search(/\(/);
-				p1 = s2.search(/\)/);
-				msg = s2.slice(p0 + 1, p1);
-			
-				if (htmldoc.search(/No/) != -1) {
-					num = 0;
-				}    
-				else {
-					pos = htmldoc.search(/have/);
-					num = htmldoc.charAt(pos +  5);
+				// English
+				else if (gLang == "eng") {
+					if (htmldoc.search(/No/) == -1) {
+						var position = htmldoc.search(/have/);
+						num = htmldoc.charAt(position +  5);
+					}
 				}
-		    }
-		    
-		    if (num == "Y") {
-				num = "Error";
-		    }
-		    
-		    dump("mensajes: "+ num + "\n");
-		    
-		    // Put the number of new emails
-		    document.getElementById('num').value = num;
-			document.getElementById('msg').value = msg;
 
-		    // Change the image if there is new mail
-		    if (num == 0) {
-				document.getElementById('image').src =
+				if (num == "Y") {
+					num = "Error";
+				}
+
+				dump("mensajes: "+ num + "\n");
+
+				// Put the number of new emails
+				document.getElementById('num').value = num;
+				document.getElementById('msg').value = msg;
+
+				// Change the image if there is new mail
+				if (num == 0) {
+				    document.getElementById('image').src =
 					"chrome://ehu-notifier/skin/ehun.png";		    
-		    }
-		    else if (num == "Error") {
-				document.getElementById('image').src =
+				}
+				else if (num == "Error") {
+				    document.getElementById('image').src =
 					"chrome://ehu-notifier/skin/ehun3.png"; 
-		    }
-			else
-			{
-				document.getElementById('image').src =
+				}
+				else
+				{
+				    document.getElementById('image').src =
 					"chrome://ehu-notifier/skin/ehun2.png"; 
+				}
+
+				ehunUnread();
+			}	    
+			else {
+				dump("Error loading page\n");
 			}
-			
-			ehunUnread();
-			
-		}	    
-		else {
-	    	    dump("Error loading page\n");
-		}
-	};
-	httpReq.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-	gParam = "user=" + gUser+ "&pw=" + gPass+ "&imapserver=" + gServer + "&lang=" + gLang 
-            + "&cmd=login";
-	dump(gParam + "\n");
-	httpReq.send(gParam);
+		};
+		httpReq.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		
+		var gParam = "user=" + gUser+ "&pw=" + gPass+ "&imapserver=" + gServer 
+					+ "&lang=" + gLang + "&cmd=login";
+		dump(gParam + "\n");
+		httpReq.send(gParam);
     }
     
 	//Check every gInterval minutes
-    intervalMiliSec = gInterval * 60 * 1000;
+    var intervalMiliSec = gInterval * 60 * 1000;
     setTimeout(ehunCheck, intervalMiliSec);
 }
 
 function ehunUnread(){
     dump("--- UNREAD ---\n");
 	var sum = "";
-	httpReq = new XMLHttpRequest();
+	var httpReq = new XMLHttpRequest();
     httpReq.open('GET', gUrl, true);
 	httpReq.onreadystatechange = function () {
 		if (httpReq.readyState == 4) {	
 			if(httpReq.status == 200) {
-				mailbox = httpReq.responseText;
-				tipbox = document.getElementById("tipbox");
-				dump(tipbox.childNodes.length + "\n");
-				l = tipbox.childNodes.length - 1;
-				for (i = l; i > 0 ; i--) {
-				  tipbox.removeChild(tipbox.childNodes[i]);
+				var m1 = httpReq.responseText;
+				
+				// Delete all info from tooltip
+				var tipbox = document.getElementById("tipbox");
+				//dump(tipbox.childNodes.length + "\n");
+				var l = tipbox.childNodes.length - 1;
+				for (i = l; i > 0; i--) {
+				    tipbox.removeChild(tipbox.childNodes[i]);
 				}
-				while(mailbox.search(/flag_unseen/) > 0) {
-					f = mailbox.search(/flag_unseen/);
-					mailbox2 = mailbox.substring(f + 12);
-					s = mailbox2.search(/size/);
-					mailbox3 = mailbox2.substring(s + 5);
-					t = mailbox3.search(/size/);
-					mailbox4 = mailbox3.substring(t);
-					u = mailbox4.search(/<B>/);
-					v = mailbox4.search(/<\/B>/);
-					sender = mailbox4.slice(u + 3, v);
+				
+				// Loop over unread messages
+				while(m1.search(/flag_unseen/) > 0) {
+					// Sender
+					var f = m1.search(/flag_unseen/);
+					var m2 = m1.substring(f + 12);
+					var s1 = m2.search(/size/);
+					var m3 = m2.substring(s1 + 5);
+					var s2 = m3.search(/size/);
+					var m4 = m3.substring(s2);
+					var b1 = m4.search(/<B>/);
+					var b2 = m4.search(/<\/B>/);
+					var se = m4.slice(b1 + 3, b2);
+					var sender = ehunReplace(se);
 					dump(sender + "\n");
-					w = mailbox4.search(/HREF/);
-					mailbox5 = mailbox4.substring(w);
-					x = mailbox5.search(/>/);
-					y = mailbox5.search(/<\/A>/);
-					subject = mailbox5.slice(x + 1, y);
+					
+					// Subject
+					var h = m4.search(/HREF/);
+					var m5 = m4.substring(h);
+					var g = m5.search(/>/);
+					var a = m5.search(/<\/A>/);
+					var su = m5.slice(g + 1, a);
+					var subject = ehunReplace(su); 
 					dump(subject + "\n");
-					desc = document.createElement("description");
+					
+					// Add tooltip with sender and subject
+					var desc = document.createElement("description");
 					desc.setAttribute("class", "header");
 					desc.setAttribute("value", sender);
 					tipbox.appendChild(desc);
 					desc = document.createElement("description");
 					desc.setAttribute("value", subject);
 					tipbox.appendChild(desc);
-					mailbox = mailbox5;
+					var m1 = m5;
 				}
 			}
 			else {
@@ -206,15 +202,30 @@ function ehunUnread(){
 	httpReq.send(null);
 }
 
+function ehunReplace(str)
+{
+	str = str.replace(/&aacute;/g, "á");
+	str = str.replace(/&eacute;/g, "é");
+	str = str.replace(/&iacute;/g, "í");
+	str = str.replace(/&oacute;/g, "ó");
+	str = str.replace(/&uacute;/g, "ú");
+	str = str.replace(/&uuml;/g, "ü");
+	str = str.replace(/&ntilde;/g, "ñ");
+	str = str.replace(/&#91;/g, "[");
+	str = str.replace(/&#93;/g, "]");
+	str = str.replace(/&#34;/g, "\"");
+	return(str);
+}
+
 function ehunShowPopup() {
     dump("--- HIDEPOPUP ---\n");
     
     gUser = gPrefManager.getCharPref("extensions.ehu-notifier.username");
     if (gUser == "") {
-	document.getElementById('ehun-context-menu-check').setAttribute("disabled", true);
+		document.getElementById('ehun-menu-check').setAttribute("disabled", true);
     }
     else {
-    	document.getElementById('ehun-context-menu-check').setAttribute("disabled", false);
+    	document.getElementById('ehun-menu-check').setAttribute("disabled", false);
     }
 }    
 
@@ -222,14 +233,14 @@ function ehunGo(event) {
     dump("--- GO ---\n");
     
     if (event.button == 0) { 
-	windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
+		var windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
        			     .getService(Components.interfaces.nsIWindowMediator);
-	browserEnumerator = windowMediator.getEnumerator("navigator:browser");
-	browserInstance = browserEnumerator.getNext().getBrowser(); 
+		var browserEnumerator = windowMediator.getEnumerator("navigator:browser");
+		var browserInstance = browserEnumerator.getNext().getBrowser(); 
         
-	// create tab and focus
-	newTab = browserInstance.addTab(gUrl);
-	browserInstance.selectedTab = newTab;
+		// create tab and focus
+		var newTab = browserInstance.addTab(gUrl);
+		browserInstance.selectedTab = newTab;
     }
 }
 

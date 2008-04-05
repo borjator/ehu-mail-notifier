@@ -4,22 +4,18 @@
 <!ENTITY menuAbout.label   "Acerca de">
 
 <!-- Options -->
-<!ENTITY account_info.label "Información de cuenta">
+<!ENTITY account_info.label "Información de la cuenta">
 <!ENTITY username.label "Nombre de usuario: ">
 <!ENTITY password.label "Contraseña: ">
 <!ENTITY server.label "Servidor">
 <!ENTITY serverName.label "Elija su servidor: ">
-<!ENTITY language.label "Idioma">
-<!ENTITY lang.label "Elija su idioma: ">
-<!ENTITY spa.label "Español">
-<!ENTITY eus.label "Euskera">
-<!ENTITY eng.label "Inglés">
 <!ENTITY update.label "Intervalo de actualización">
 <!ENTITY updateInterval1.label "Comprobar correo cada ">
 <!ENTITY updateInterval2.label " minutos">
 <!ENTITY close.label "Cerrar">
 
 <!-- About dialog -->
+<!ENTITY whatis.text "Notificador para el correo de la EHU">
 <!ENTITY version.text "Versión ">
 <!ENTITY createdBy.text "Creado por: ">
 <!ENTITY homepage.text "Página web: ">

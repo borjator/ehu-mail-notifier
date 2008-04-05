@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is EHU Notifier.
+ * The Original Code is EHU Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * Borja Tornero <etxekalte@gmail.com>.
@@ -45,18 +45,16 @@ function ehunFill() {
     document.getElementById('username').value = gUser;
     document.getElementById('password').value = gPass;
     document.getElementById('server').value = gServer;
-    document.getElementById('lang').value = gLang;
     document.getElementById('interval').value = gInterval;
 }
 
 function ehunClose() {
     dump("--- ECLOSE ---\n");
     
-    userOld = gUser;
+    var userOld = gUser;
     gUser = document.getElementById('username').value;
     gPass= document.getElementById('password').value;
     gServer = document.getElementById('server').value;
-    gLang = document.getElementById('lang').value;
     gInterval = document.getElementById('interval').value;
     
     dump(gUser + ":" + gPass+ ":" + gServer + ":" + gLang +
@@ -64,14 +62,13 @@ function ehunClose() {
     
     gPrefManager.setCharPref("extensions.ehu-notifier.username", gUser);            
     gPrefManager.setCharPref("extensions.ehu-notifier.server", gServer);
-    gPrefManager.setCharPref("extensions.ehu-notifier.language", gLang);
     gPrefManager.setIntPref("extensions.ehu-notifier.interval", gInterval);
 
     if (gPassManager) {
-	passManager = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManager);
+		passManager = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManager);
     }
     try {
-	passManager.removeUser(URL, userOld);
+		passManager.removeUser(URL, userOld);
     }
     catch (e) {
     }

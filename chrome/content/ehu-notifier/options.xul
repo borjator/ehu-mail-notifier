@@ -12,7 +12,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is EHU Notifier.
+ * The Original Code is EHU Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * Borja Tornero <etxekalte@gmail.com>.
@@ -36,7 +36,7 @@
 
 <!DOCTYPE window SYSTEM "chrome://ehu-notifier/locale/ehu-notifier.dtd">
 
-<window class="dialog" id="ehu-notifier-options" title="EHU Mail Notifier - Options" orient="vertical"
+<window class="dialog" id="ehu-notifier-options" title="Options" orient="vertical"
 	onload="ehunFill();" onunload="ehunClose();" 
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script type="application/x-javascript" src="chrome://ehu-notifier/content/options.js"/>
@@ -57,39 +57,24 @@
 	<groupbox>
 	    <caption label="&server.label;" />
 	    <hbox>
-		<label value="&serverName.label;"/>
-		<spacer flex="1"/>
-		<menulist id="server">
-		    <menupopup>
-			<menuitem label="aintel.bi.ehu.es" value="aintel.bi.ehu.es"/>
-			<menuitem label="ikasle.ehu.es" value="ikasle.ehu.es"/>
-			<menuitem label="mailin.ehu.es" value="mailin.ehu.es"/>
-			<menuitem label="posta.ehu.es" value="posta.ehu.es"/>
-			<menuitem label="vchx00.vc.ehu.es" value="vchx00.vc.ehu.es"/>
-		    </menupopup>
-		</menulist>
-	    </hbox>
-	</groupbox>
-	<groupbox>
-	    <caption label="&language.label;"/>
-	    <hbox>
-		<label value="&lang.label;"/>
-		<spacer flex="1"/>
-		<menulist id="lang">
-		    <menupopup>
-			<menuitem label="&spa.label;" value="spa"/>
-			<menuitem label="&eus.label;" value="eus"/>
-			<menuitem label="&eng.label;" value="eng"/>
-		    </menupopup>    
-		</menulist>
+			<label value="&serverName.label;"/>
+			<spacer flex="1"/>
+			<menulist id="server">
+				<menupopup>
+					<menuitem label="aintel.bi.ehu.es" value="aintel.bi.ehu.es"/>
+					<menuitem label="ikasle.ehu.es" value="ikasle.ehu.es"/>
+					<menuitem label="mailin.ehu.es" value="mailin.ehu.es"/>
+					<menuitem label="posta.ehu.es" value="posta.ehu.es"/>
+				</menupopup>
+			</menulist>
 	    </hbox>
 	</groupbox>
 	<groupbox>
 	    <caption label="&update.label;"/>
 	    <hbox>
-		<label value="&updateInterval1.label;"/>
-		<textbox id="interval" size="2" maxlength="2"/>	
-		<label value="&updateInterval2.label;"/>
+			<label value="&updateInterval1.label;"/>
+			<textbox id="interval" size="2" maxlength="2"/>	
+			<label value="&updateInterval2.label;"/>
 	    </hbox>
 	</groupbox>    
 	<hbox>

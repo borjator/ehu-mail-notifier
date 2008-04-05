@@ -11,7 +11,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is EHU Notifier.
+ * The Original Code is EHU Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * Borja Tornero <etxekalte@gmail.com>.
@@ -32,6 +32,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+// globals
 var gUser;
 var gPass;
 var gServer;
@@ -49,26 +50,35 @@ function getPref() {
                   .getService(Components.interfaces.nsIPrefBranch);
     gUser = gPrefManager.getCharPref("extensions.ehu-notifier.username");            
     gServer = gPrefManager.getCharPref("extensions.ehu-notifier.server");
-    gLang = gPrefManager.getCharPref("extensions.ehu-notifier.language"); 
     gInterval =	gPrefManager.getIntPref("extensions.ehu-notifier.interval");
+    lang = gPrefManager.getCharPref("general.useragent.locale"); 
+	if(lang.match(/^es/)) {
+		gLang = "spa";
+	}
+	else if(lang.match(/^eu/)) {
+		gLang = "eus";
+	}
+	else if(lang.match(/^en/)) {
+		gLang = "eng";
+	}
 
     // get the password from password manager
     gPassManager = Components.classes["@mozilla.org/passwordmanager;1"].createInstance();
     if (gPassManager) {
-	passManagerInt = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
+		var passManagerInt = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
     }	      
-    tempHost = new Object();
-    tempUser = new Object();
-    tempPass = new Object();
+		var tempHost = new Object();
+		var tempUser = new Object();
+		var tempPass = new Object();
     try {
     	passManagerInt.findPasswordEntry(URL, gUser, "", tempHost, tempUser, tempPass);
     	gPass = tempPass.value;
-	dump(gPass + "\n");
+		dump(gPass + "\n");
     }
     catch(e) {
         dump("Unable to get password for " + gUser + ": " + e +"\n");
     }	
     if (gPass == undefined) {
-	gPass = "";
+		gPass = "";
     }	
 }

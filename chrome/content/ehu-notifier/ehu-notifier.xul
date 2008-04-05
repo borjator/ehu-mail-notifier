@@ -12,7 +12,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is EHU Notifier.
+ * The Original Code is EHU Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * Borja Tornero <etxekalte@gmail.com>.
@@ -39,37 +39,38 @@
 <overlay id="ehu-notifier"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-<script type="application/x-javascript" src="chrome://ehu-notifier/content/ehu-notifier.js"/>
-<script type="application/x-javascript" src="chrome://ehu-notifier/content/getpref.js"/>
+	<script type="application/x-javascript" src="chrome://ehu-notifier/content/ehu-notifier.js"/>
+	<script type="application/x-javascript" src="chrome://ehu-notifier/content/getpref.js"/>
 
-<window id="main-window">
-    <popupset id="ehun-popupset">
-	<popup id="ehun-popup" onpopupshowing="ehunShowPopup();">
-	    <menuitem id="ehun-menu-check"
-	    label="&menuCheck.label;" oncommand="ehunCheck();"/>
-	    <menuitem id="ehun-menu-account"
-	    label="&menuOptions.label;" oncommand="ehunConfigure();"/>
-	    <menuitem id="ehun-menu-about"
-	    label="&menuAbout.label;" oncommand="ehunAbout();" />
-	</popup>
-    </popupset>
-</window>
+	<window id="main-window">
+		<popupset id="ehun-popupset">
+			<popup id="ehun-popup" onpopupshowing="ehunShowPopup();">
+				<menuitem id="ehun-menu-check"
+					label="&menuCheck.label;" oncommand="ehunCheck();"/>
+				<menuitem id="ehun-menu-account"
+					label="&menuOptions.label;" oncommand="ehunConfigure();"/>
+				<menuitem id="ehun-menu-about"
+					label="&menuAbout.label;" oncommand="ehunAbout();" />
+			</popup>
+		</popupset>
+	</window>
 
 
-<statusbar id="status-bar">
-	<popupset id="tip-popupset">
-		<tooltip id="tipbox" orient="vertical" style="background-color:#33DD00;">
-			<hbox id="htip">
-				<image src="chrome://ehu-notifier/skin/ehun_e.png" width="32" height="32"/> 
-				<description id="msg" value=""/>
-			</hbox>
-		</tooltip>
-	</popupset>
-	<statusbarpanel id="ehun-statusbarpanel" tooltip="tipbox">
-		<image context="ehun-popup" id="image" onclick="ehunGo(event);"
-	 src="chrome://ehu-notifier/skin/ehun.png" width="16" height="11" insertafter="statusbar-resizerpanel" />
-		<label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
-	</statusbarpanel>
-</statusbar>
+	<statusbar id="status-bar">
+		<popupset id="tip-popupset">
+			<tooltip id="tipbox" orient="vertical" style="background-color:#33DD00;">
+				<hbox id="htip">
+					<image src="chrome://ehu-notifier/skin/ehun_e.png" width="32" height="32"/> 
+					<description id="msg" value=""/>
+				</hbox>
+			</tooltip>
+		</popupset>
+		<statusbarpanel id="ehun-statusbarpanel" tooltip="tipbox">
+			<image context="ehun-popup" id="image" onclick="ehunGo(event);"
+				src="chrome://ehu-notifier/skin/ehun.png" width="16" height="11" 
+				insertafter="statusbar-resizerpanel" />
+			<label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
+		</statusbarpanel>
+	</statusbar>
 
 </overlay>

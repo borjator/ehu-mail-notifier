@@ -12,7 +12,7 @@
  * for the specific language governing rights and limitations under the
  * License.
  *
- * The Original Code is EHU Notifier.
+ * The Original Code is EHU Mail Notifier.
  *
  * The Initial Developer of the Original Code is
  * Borja Tornero <etxekalte@gmail.com>.
@@ -43,32 +43,35 @@
 	onload="sizeToContent()"
 	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
 
-<!-- Original template by Jed Brown -->
+	<!-- Original template by Jed Brown -->
 
-<groupbox align="center" orient="horizontal">
-<vbox>
-  <text value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
-  <hbox>
-    <text value="&version.text;"/>
-    <text value="0.7"/>
-  </hbox>
-  <separator class="thin"/>
-  <text value="&createdBy.text;" style="font-weight: bold;"/>
-  <text value="Borja Tornero" class="url"
-        onclick="open('mailto:etxekalte@gmail.com'); window.close();"/>
-  <separator class="thin"/>
-    <text value="&homepage.text;" style="font-weight: bold;"/>
-    <text value="http://itsas.mundurat.net/wiki-itsas/EhuNotifier"
-          class="url"
-          onclick="window.open('http://itsas.mundurat.net/wiki-itsas/EhuNotifier'); window.close();"/>
-  <separator class="thin"/>
-</vbox>
-<spring flex="1"/>
-<image src="chrome://ehu-notifier/skin/ehun_about.png"/>
-</groupbox>
-  <hbox>
-    <spacer flex="1"/>
-    <button label="&close.label;" oncommand="window.close();"/>
-  </hbox>
+	<groupbox align="center" orient="horizontal">
+		<vbox>
+			<text value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
+			<hbox>
+				<text value="&version.text;" style="color: grey;"/>
+				<text value="0.7" style="color: grey;"/>
+			</hbox>
+			<separator class="thin"/>    
+			<text value="&whatis.text;"/>
+			<separator class="thin"/>
+			<text value="&createdBy.text;" style="font-weight: bold;"/>
+			<text value="Borja Tornero" class="url"
+				onclick="open('mailto:etxekalte@gmail.com'); window.close();"/>
+			<separator class="thin"/>
+			<text value="&homepage.text;" style="font-weight: bold;"/>
+			<text value="http://itsas.ehu.es/contribs/ehu_mail_notifier"
+				class="url"
+				onclick="window.open('http://itsas.ehu.es/contribs/ehu_mail_notifier'); window.close();"/>
+			<separator class="thin"/>
+		</vbox>
+		<spring flex="1"/>
+		<image src="chrome://ehu-notifier/skin/ehun_about.png"/>
+	</groupbox>
+
+	<hbox>
+		<spacer flex="1"/>
+		<button label="&close.label;" oncommand="window.close();"/>
+	</hbox>
 
 </window>

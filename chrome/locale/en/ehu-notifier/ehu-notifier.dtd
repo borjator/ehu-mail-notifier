@@ -9,17 +9,13 @@
 <!ENTITY password.label "Password: ">
 <!ENTITY server.label "Server">
 <!ENTITY serverName.label "Choose your server: ">
-<!ENTITY language.label "Language">
-<!ENTITY lang.label "Choose your language: ">
-<!ENTITY spa.label "Spanish">
-<!ENTITY eus.label "Basque">
-<!ENTITY eng.label "English">
 <!ENTITY update.label "Update interval">
-<!ENTITY updateInterval1.label "Check for mail every ">
+<!ENTITY updateInterval1.label "Check for new mail every ">
 <!ENTITY updateInterval2.label " minutes">
 <!ENTITY close.label "Close">
 
 <!-- About dialog -->
+<!ENTITY whatis.text "A notifier for EHU mail accounts">
 <!ENTITY version.text "Version ">
 <!ENTITY createdBy.text "Created by: ">
 <!ENTITY homepage.text "Home Page: ">

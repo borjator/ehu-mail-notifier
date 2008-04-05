@@ -9,17 +9,13 @@
 <!ENTITY password.label "Pasahitza: ">
 <!ENTITY server.label "Zerbitzaria">
 <!ENTITY serverName.label "Aukeratu zure zerbitzaria: ">
-<!ENTITY language.label "Hizkuntza">
-<!ENTITY lang.label "Aukeratu zure hizkuntza: ">
-<!ENTITY spa.label "Gaztelania">
-<!ENTITY eus.label "Euskara">
-<!ENTITY eng.label "Ingelesa">
 <!ENTITY update.label "Oraingotzeko tartea">
 <!ENTITY updateInterval1.label "Aztertu posta ">
 <!ENTITY updateInterval2.label " minuturo">
 <!ENTITY close.label "Itxi">
 
 <!-- About dialog -->
+<!ENTITY whatis.text "EHUko posta elektronikorako ohartarazlea">
 <!ENTITY version.text "Bertsioa ">
 <!ENTITY createdBy.text "Egilea: ">
 <!ENTITY homepage.text "Web orria: ">
