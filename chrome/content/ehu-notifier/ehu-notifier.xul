@@ -55,12 +55,21 @@
     </popupset>
 </window>
 
+
 <statusbar id="status-bar">
-         <statusbarpanel id="ehun-statusbarpanel">
-	 <image context="ehun-popup" id="image" onclick="ehunGo(event);"
+	<popupset id="tip-popupset">
+		<tooltip id="tipbox" orient="vertical" style="background-color:#33DD00;">
+			<hbox id="htip">
+				<image src="chrome://ehu-notifier/skin/ehun_e.png" width="32" height="32"/> 
+				<description id="msg" value=""/>
+			</hbox>
+		</tooltip>
+	</popupset>
+	<statusbarpanel id="ehun-statusbarpanel" tooltip="tipbox">
+		<image context="ehun-popup" id="image" onclick="ehunGo(event);"
 	 src="chrome://ehu-notifier/skin/ehun.png" width="16" height="11" insertafter="statusbar-resizerpanel" />
-	 <label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
-	 </statusbarpanel>
+		<label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
+	</statusbarpanel>
 </statusbar>
 
 </overlay>

@@ -21,12 +21,12 @@ xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
 	</RDF:Seq>
 
 	<RDF:Description RDF:about="urn:mozilla:package:ehu-notifier"
-		chrome:displayName="EHU Mail Notifier 0.6"
+		chrome:displayName="EHU Mail Notifier 0.7"
 		chrome:author="Borja Tornero"
 		chrome:authorURL="mailto:etxekalte@gmail.com"
 		chrome:name="ehu-notifier"
 		chrome:extension="true"
-		chrome:description="A notifier ofr EHU mail accounts.">
+		chrome:description="A notifier for EHU mail accounts.">
 	</RDF:Description>
 
 </RDF:RDF>

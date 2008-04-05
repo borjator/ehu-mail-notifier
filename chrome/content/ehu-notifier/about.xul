@@ -50,7 +50,7 @@
   <text value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
   <hbox>
     <text value="&version.text;"/>
-    <text value="0.6"/>
+    <text value="0.7"/>
   </hbox>
   <separator class="thin"/>
   <text value="&createdBy.text;" style="font-weight: bold;"/>
