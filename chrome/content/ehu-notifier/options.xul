@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+
+<window class="dialog" id="ehu-notifier-options" title="Options" orient="vertical"
+	onload="ehunFill();" onunload="ehunClose();" 
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript" src="chrome://ehu-notifier/content/options.js"/>
+    <script type="application/x-javascript" src="chrome://ehu-notifier/content/getpref.js"/>
+	<groupbox orient="vertical">
+	    <caption label="Account info"/>
+	    <hbox>
+	        <label control="user" value="Username: "/>
+	        <spacer flex="1"/>
+		<textbox id="username" maxlength="12"/>
+	    </hbox>
+	    <hbox>
+	        <label control="pass" value="Password: "/>
+		<spacer flex="1"/>
+	        <textbox id="password" type="password" maxlength="12"/>
+	    </hbox>
+	</groupbox>
+	<groupbox>
+	    <caption label="Server" />
+	    <hbox>
+		<label value="Choose your server: "/>
+		<spacer flex="1"/>
+		<menulist id="server">
+		    <menupopup>
+			<menuitem label="aintel.bi.ehu.es" value="aintel.bi.ehu.es"/>
+			<menuitem label="ikasle.ehu.es" value="ikasle.ehu.es"/>
+			<menuitem label="mailin.ehu.es" value="mailin.ehu.es"/>
+			<menuitem label="posta.ehu.es" value="posta.ehu.es"/>
+			<menuitem label="vchx00.vc.ehu.es" value="vchx00.vc.ehu.es"/>
+		    </menupopup>
+		</menulist>
+	    </hbox>
+	</groupbox>
+	<groupbox>
+	    <caption label="Language"/>
+	    <hbox>
+		<label value="Choose your language: "/>
+		<spacer flex="1"/>
+		<menulist id="lang">
+		    <menupopup>
+			<menuitem label="Spanish" value="spa"/>
+			<menuitem label="Basque" value="eus"/>
+			<menuitem label="English" value="eng"/>
+		    </menupopup>    
+		</menulist>
+	    </hbox>
+	</groupbox>
+	<hbox>
+	    <spacer flex="1"/>
+	    <button id="close" label="Close" oncommand="close();"/>        	
+	</hbox>
+</window>

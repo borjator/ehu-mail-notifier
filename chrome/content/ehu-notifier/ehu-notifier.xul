@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://ehu-notifier/content/ehu-notifier.css type="text/css"?>
+
+<overlay id="ehu-notifier"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+// This imports our javascript.
+
+<script type="application/x-javascript" src="chrome://ehu-notifier/content/ehu-notifier.js"/>
+<script type="application/x-javascript" src="chrome://ehu-notifier/content/getpref.js"/>
+
+// This is the popup menu
+<window id="main-window">
+    <popupset id="ehun-popupset">
+	<popup id="ehun-popup" onpopupshowing="ehunShowPopup();">
+	    <menuitem id="ehun-context-menu-check" label="Check now" oncommand="ehunCheck();"/>
+	    <menuitem id="ehun-context-menu-account" label="Options" oncommand="ehunConfigure();"/>
+	    <menuitem id="ehun-context-menu-about" label="About" oncommand="ehunAbout();" />
+	</popup>
+    </popupset>
+</window>
+
+// This is for the statusbar icon
+
+<statusbar id="status-bar">
+         <statusbarpanel id="ehun-statusbarpanel">
+	 <image context="ehun-popup" onclick="ehunGo(event);"
+	 src="chrome://ehu-notifier/skin/ehun.png" width="16" height="11" insertafter="statusbar-resizerpanel" />
+	 <label context="ehun-popup" id="num" value=" " onclick="ehunGo(event);"/>
+	 </statusbarpanel>
+</statusbar>
+
+</overlay>
