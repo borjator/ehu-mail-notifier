@@ -38,17 +38,19 @@ var gPass;
 var gServer;
 var gLang;
 var gInterval;
-const URL = "chrome://ehu-notifier/";
+var gPrefManager;
+var gPassManager;
+const chromeUrl = "chrome://ehu-notifier/";
 
 function getPref() {
     dump("--- GETPREF ---\n");
     
     // get the preferences
-    var prefManager = Components.classes["@mozilla.org/preferences-service;1"]
+    gPrefManager = Components.classes["@mozilla.org/preferences-service;1"]
                   .getService(Components.interfaces.nsIPrefBranch);
-    gUser = prefManager.getCharPref("extensions.ehu-notifier.username");            
-    gServer = prefManager.getCharPref("extensions.ehu-notifier.server");
-    gInterval =	prefManager.getIntPref("extensions.ehu-notifier.interval");
+    gUser = gPrefManager.getCharPref("extensions.ehu-notifier.username");            
+    gServer = gPrefManager.getCharPref("extensions.ehu-notifier.server");
+    gInterval =	gPrefManager.getIntPref("extensions.ehu-notifier.interval");
 	
 	//var lang = prefManager.getIntPref("general.useragent.locale");
     var sBundleService = Components.classes["@mozilla.org/intl/stringbundle;1"]
@@ -67,16 +69,16 @@ function getPref() {
     }
 
     // get the password from password manager
-    var passManager = Components.classes["@mozilla.org/passwordmanager;1"]
+    gPassManager = Components.classes["@mozilla.org/passwordmanager;1"]
 					  .createInstance();
-    if (passManager) {
-		var passManagerInt = passManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
+    if (gPassManager) {
+		var passManagerInt = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManagerInternal);
     }	      
 	var tempHost = new Object();
 	var tempUser = new Object();
 	var tempPass = new Object();
     try {
-    	passManagerInt.findPasswordEntry(URL, gUser, "", tempHost, tempUser, tempPass);
+    	passManagerInt.findPasswordEntry(chromeUrl, gUser, "", tempHost, tempUser, tempPass);
     	gPass = tempPass.value;
 		dump(gPass + "\n");
     }

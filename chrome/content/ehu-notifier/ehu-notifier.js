@@ -209,8 +209,15 @@ function ehunReplace(str)
 	str = str.replace(/&iacute;/g, "í");
 	str = str.replace(/&oacute;/g, "ó");
 	str = str.replace(/&uacute;/g, "ú");
+	str = str.replace(/&Aacute;/g, "á");
+	str = str.replace(/&Eacute;/g, "é");
+	str = str.replace(/&Iacute;/g, "í");
+	str = str.replace(/&Oacute;/g, "ó");
+	str = str.replace(/&Uacute;/g, "ú");
 	str = str.replace(/&uuml;/g, "ü");
+	str = str.replace(/&Uuml;/g, "ü");
 	str = str.replace(/&ntilde;/g, "ñ");
+	str = str.replace(/&Ntilde;/g, "ñ");
 	str = str.replace(/&#91;/g, "[");
 	str = str.replace(/&#93;/g, "]");
 	str = str.replace(/&#34;/g, "\"");

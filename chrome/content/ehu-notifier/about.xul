@@ -47,22 +47,24 @@
 
 	<groupbox align="center" orient="horizontal">
 		<vbox>
-			<text value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
+			<label value="EHU Mail Notifier" style="font-weight: bold; font-size: x-large;"/>
 			<hbox>
-				<text value="&version.text;" style="color: grey;"/>
-				<text value="0.7.2" style="color: grey;"/>
+				<label value="&version.text;" style="color: grey;"/>
+				<label value="0.7.3" style="color: grey;"/>
 			</hbox>
 			<separator class="thin"/>    
-			<text value="&whatis.text;"/>
+			<label value="&whatis.text;"/>
 			<separator class="thin"/>
-			<text value="&createdBy.text;" style="font-weight: bold;"/>
-			<text value="Borja Tornero" class="url"
-				onclick="open('mailto:etxekalte@gmail.com'); window.close();"/>
+			<label value="&createdBy.text;" style="font-weight: bold;"/>
+			<hbox>
+				<label value="Borja Tornero"/>
+				<label value="etxekalte@gmail.com" class="text-link" 
+					href="mailto:etxekalte@gmail.com"/>
+			</hbox>	
 			<separator class="thin"/>
-			<text value="&homepage.text;" style="font-weight: bold;"/>
-			<text value="http://itsas.ehu.es/contribs/ehu_mail_notifier"
-				class="url"
-				onclick="window.open('http://itsas.ehu.es/contribs/ehu_mail_notifier'); window.close();"/>
+			<label value="&homepage.text;" style="font-weight: bold;"/>
+			<label value="http://itsas.ehu.es/contribs/ehu_mail_notifier"
+				class="text-link" href="http://itsas.ehu.es/contribs/ehu_mail_notifier"/>
 			<separator class="thin"/>
 		</vbox>
 		<spring flex="1"/>

@@ -68,9 +68,10 @@ function ehunClose() {
 		passManager = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManager);
     }
     try {
-		passManager.removeUser(URL, userOld);
+		passManager.removeUser(chromeUrl, userOld);
     }
     catch (e) {
-    }
-    passManager.addUser(URL, gUser, gPass);
+		dump("Unable to change password for " + gUser + ": " + e +"\n");	
+	}
+    passManager.addUser(chromeUrl, gUser, gPass);
 }
