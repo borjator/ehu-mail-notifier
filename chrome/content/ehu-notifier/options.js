@@ -46,6 +46,7 @@ function ehunFill() {
     document.getElementById('password').value = gPass;
     document.getElementById('server').value = gServer;
     document.getElementById('lang').value = gLang;
+    document.getElementById('interval').value = gInterval;
 }
 
 function ehunClose() {
@@ -56,12 +57,16 @@ function ehunClose() {
     gPass= document.getElementById('password').value;
     gServer = document.getElementById('server').value;
     gLang = document.getElementById('lang').value;
-    dump(gUser + ":" + gPass+ ":" + gServer + ":" + gLang + "\n");
+    gInterval = document.getElementById('interval').value;
+    
+    dump(gUser + ":" + gPass+ ":" + gServer + ":" + gLang +
+	    ":" + gInterval + "\n");
     
     gPrefManager.setCharPref("extensions.ehu-notifier.username", gUser);            
     gPrefManager.setCharPref("extensions.ehu-notifier.server", gServer);
     gPrefManager.setCharPref("extensions.ehu-notifier.language", gLang);
-    
+    gPrefManager.setIntPref("extensions.ehu-notifier.interval", gInterval);
+
     if (gPassManager) {
 	passManager = gPassManager.QueryInterface(Components.interfaces.nsIPasswordManager);
     }

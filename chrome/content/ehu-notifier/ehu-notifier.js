@@ -33,6 +33,7 @@
  * ***** END LICENSE BLOCK ***** */
 
 var gParam;
+var gUrl;
 
 function ehunCheck() {
     dump("--- CHECK ---\n");
@@ -80,8 +81,30 @@ function ehunCheck() {
 		    if (num == "Y") {
 			num = "Error";
 		    }
+		    
 		    dump("mensajes: "+ num + "\n");
+		    
+		    // Put the number of new emails
 		    document.getElementById('num').value = num;
+
+		    // Change the image if there is new mail
+		    if (num == 0) {
+			document.getElementById('image').src =
+			    "chrome://ehu-notifier/skin/ehun.png";		    
+		    }
+		    else {
+		   	document.getElementById('image').src =
+			    "chrome://ehu-notifier/skin/ehun2.png"; 
+		    }	
+		    
+		    // Get the url of the inbox page
+		    if (htmldoc.search(/cclient/) != -1) {
+			indexA = htmldoc.search(/cclient/);
+			indexB = htmldoc.search(/mail/);
+			subUrl = htmldoc.substring(indexA, indexB - 41);
+		        gUrl = "https://www.ehu.es/cgi-bin/postman/" + subUrl;
+			dump("URL: " + gUrl + "\n");
+		    }	
 		}	    
 		else {
 	    	    dump("Error loading page\n");
@@ -93,6 +116,10 @@ function ehunCheck() {
 	dump(gParam + "\n");
 	httpReq.send(gParam);
     }
+    
+    //Check every gInterval minutes
+    intervalMiliSec = gInterval * 60 * 1000;
+    setTimeout(ehunCheck, intervalMiliSec);
 }
 
 function ehunShowPopup() {
@@ -111,19 +138,13 @@ function ehunGo(event) {
     dump("--- GO ---\n");
     
     if (event.button == 0) { 
-	getPref();
-	gParam = "user=" + gUser+ "&pw=" + gPass+ "&imapserver=" + gServer + "&lang=" + gLang 
-    	         + "&cmd=login";
-	url = "https://www.ehu.es/cgi-bin/postman" + "?" + gParam;
-	dump(url + "\n");
 	windowMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"]
-             .getService(Components.interfaces.nsIWindowMediator);
+       			     .getService(Components.interfaces.nsIWindowMediator);
 	browserEnumerator = windowMediator.getEnumerator("navigator:browser");
 	browserInstance = browserEnumerator.getNext().getBrowser(); 
-         
-	// create tab
-	newTab = browserInstance.addTab(url);
-	// focus tab
+        
+	// create tab and focus
+	newTab = browserInstance.addTab(gUrl);
 	browserInstance.selectedTab = newTab;
     }
 }
