@@ -1,0 +1,7 @@
+overlay	chrome://browser/content/browser.xul	chrome://ehu-notifier/content/ehu-notifier.xul
+overlay	chrome://navigator/content/navigator.xul	chrome://ehu-notifier/content/ehu-notifier.xul
+content	ehu-notifier	jar:chrome/ehu-notifier.jar!/content/ehu-notifier/
+skin	ehu-notifier	classic/1.0	jar:chrome/ehu-notifier.jar!/skin/classic/ehu-notifier/
+locale	ehu-notifier	en	jar:chrome/ehu-notifier.jar!/locale/en/ehu-notifier/
+locale	ehu-notifier	es	jar:chrome/ehu-notifier.jar!/locale/es/ehu-notifier/
+locale	ehu-notifier	eu	jar:chrome/ehu-notifier.jar!/locale/eu/ehu-notifier/
