@@ -32,6 +32,8 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
+/* $Id$ */
+
 // globals
 var gParam;
 
