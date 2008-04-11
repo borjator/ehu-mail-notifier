@@ -2,8 +2,8 @@
 
 <!-- Contextual menu -->
 <!ENTITY menuCheck.label   "Check now">
-<!ENTITY menuOptions.label "Options">
-<!ENTITY menuAbout.label   "About">
+<!ENTITY menuOptions.label "Preferences...">
+<!ENTITY menuAbout.label   "About...">
 
 <!-- Options -->
 <!ENTITY account_info.label "Account info">

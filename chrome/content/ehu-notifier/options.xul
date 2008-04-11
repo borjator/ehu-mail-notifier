@@ -64,10 +64,8 @@
 			<spacer flex="1"/>
 			<menulist id="server">
 				<menupopup>
-					<menuitem label="aintel.bi.ehu.es" value="aintel.bi.ehu.es"/>
 					<menuitem label="ikasle.ehu.es" value="ikasle.ehu.es"/>
 					<menuitem label="mailin.ehu.es" value="mailin.ehu.es"/>
-					<menuitem label="posta.ehu.es" value="posta.ehu.es"/>
 				</menupopup>
 			</menulist>
 	    </hbox>

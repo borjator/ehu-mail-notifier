@@ -2,8 +2,8 @@
 
 <!-- Contextual menu -->
 <!ENTITY menuCheck.label   "Aztertu orain">
-<!ENTITY menuOptions.label "Hobespenak">
-<!ENTITY menuAbout.label   "Honi buruz">
+<!ENTITY menuOptions.label "Hobespenak...">
+<!ENTITY menuAbout.label   "Honi buruz...">
 
 <!-- Options -->
 <!ENTITY account_info.label "Kontuaren informazioa">
