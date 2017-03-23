@@ -1,14 +1,18 @@
 # ehu-mail-notifier
 
+
+This a Mozilla Firefox extension for the UPV/EHU mail which notifies of the number of unread messages and allows you to go directly there.
+
+
 ## Disclaimer
 
 This a really old project no longer working, but I keep it here for historical reasons. The old project URL was https://code.google.com/archive/p/ehu-mail-notifier/
 
-This a Mozilla Firefox extension for the UPV/EHU mail which notifies of the number of unread messages and allows you to go directly there.
 
 ## Descripción
 
 EHU Mail Notifier es una extensión para Mozilla Firefox que sirve para ver el número de correos que hay sin leer en la cuenta de correo de la UPV/EHU y que permite acceder directamente a ella. Esta extensión nació para aprender algo sobre la tecnología de Firefox (y de Mozilla en general) y para evitar tener que estar metiendo siempre el nombre de usuario, contraseña, servidor e idioma en esa incómoda página que existe para acceder al correo.
+
 
 ## Revisiones
 
@@ -50,6 +54,7 @@ EHU Mail Notifier es una extensión para Mozilla Firefox que sirve para ver el n
 * 0.1.0
   * Versión inicial
 
+
 ## Capturas de pantalla
 
 ![Screenshot 1](screenshots/ehun1.png "Screenshot 1")
@@ -57,6 +62,7 @@ EHU Mail Notifier es una extensión para Mozilla Firefox que sirve para ver el n
 ![Screenshot 3](screenshots/ehun3.png "Screenshot 3")
 ![Screenshot 4](screenshots/ehun4.png "Screenshot 4")
 ![Screenshot 5](screenshots/ehun5.png "Screenshot 5")
+
 
 ## Contacto
 
