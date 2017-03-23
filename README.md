@@ -2,7 +2,7 @@
 
 ## Disclaimer
 
-This a really old project no longer working, but I keep it here for historical reasons.
+This a really old project no longer working, but I keep it here for historical reasons. The old project URL was https://code.google.com/archive/p/ehu-mail-notifier/
 
 This a Mozilla Firefox extension for the UPV/EHU mail which notifies of the number of unread messages and allows you to go directly there.
 
