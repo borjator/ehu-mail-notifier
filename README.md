@@ -52,6 +52,12 @@ EHU Mail Notifier es una extensión para Mozilla Firefox que sirve para ver el n
 
 ## Capturas de pantalla
 
+![Screenshot 1](screenshots/filename.png "Screenshot 1")
+![Screenshot 2](screenshots/filename.png "Screenshot 2")
+![Screenshot 3](screenshots/filename.png "Screenshot 3")
+![Screenshot 4](screenshots/filename.png "Screenshot 4")
+![Screenshot 5](screenshots/filename.png "Screenshot 5")
+
 ## Contacto
 
 Borja Tornero <borjatornero@gmail.com>
