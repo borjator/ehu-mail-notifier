@@ -12,47 +12,47 @@ EHU Mail Notifier es una extensión para Mozilla Firefox que sirve para ver el n
 
 ## Revisiones
 
-*0.8.4
-..*Adaptado a la última versión del correo web
-..*Añadida compatibilidad con Firefox 3.6
-*0.8.3
-..*Añadida compatibilidad con Firefox 3.5
-*0.8.2
-..*Resuelto un error que impide que se instale en versiones de Firefox superiores a la 3.0.0
-*0.8.1
-..*Añadida compatibilidad con Firefox 3
-*0.8.0
-..*Adaptado al nuevo correo web basado en Horde e IMP
-..*Actualización de servidores disponibles
-*0.7.3
-..*Resuelto un error que impedía guardar los cambios en las opciones
-*0.7.2
-..*Resuelto un error con la detección del idioma que impedía que funcionara bien en Ubuntu
-*0.7.1
-..*Resuelto un error que impedía que funcionara bien con el servidor mailin.ehu.es
-*0.7.0
-..*Limpieza de código
-..*Reestructuración y mejoras en la localización
-..*Ahora con el ratón encima muestra un popup con el remitente y el asunto de los mensajes no leídos
-..*Cambio en el código de colores: azul si hay mensajes sin leer, negro si no hay y rojo si hay algún problema o si la extensión no está configurada aún
-*0.6.1
-..*Resuelto un error que impedía que funcionara correctamente con la apariencia CLASSIC del correo
-*0.6.0
-..*Compatible con Firefox 2.0
-..*Cambio de icono cuando hay mensajes nuevos sin leer
-..*Ahora directamente abre la página de la bandeja de entrada con lo que además deja de aparecer el nombre de usuario y la contraseña en la barra de direcciones
-..*Iconos con fondo transparente
-*0.5.0
-..*Diálogo de opciones para introducir nombre de usuario, contraseña, servidor, idioma e intervalo de chequeo
-..*Aumentado el número de caracteres para el nombre de usuario y contraseña a 18
-..*Traducciones a euskera, castellano e inglés
-..*Posibilidad de ir a la página principal del correo
-*0.1.0
-..*Versión inicial
+* 0.8.4
+  * Adaptado a la última versión del correo web
+  * Añadida compatibilidad con Firefox 3.6
+* 0.8.3
+  * Añadida compatibilidad con Firefox 3.5
+* 0.8.2
+  * Resuelto un error que impide que se instale en versiones de Firefox superiores a la 3.0.0
+* 0.8.1
+  * Añadida compatibilidad con Firefox 3
+* 0.8.0
+  * Adaptado al nuevo correo web basado en Horde e IMP
+  * Actualización de servidores disponibles
+* 0.7.3
+  * Resuelto un error que impedía guardar los cambios en las opciones
+* 0.7.2
+  * Resuelto un error con la detección del idioma que impedía que funcionara bien en Ubuntu
+* 0.7.1
+  * Resuelto un error que impedía que funcionara bien con el servidor mailin.ehu.es
+* 0.7.0
+  * Limpieza de código
+  * Reestructuración y mejoras en la localización
+  * Ahora con el ratón encima muestra un popup con el remitente y el asunto de los mensajes no leídos
+  * Cambio en el código de colores: azul si hay mensajes sin leer, negro si no hay y rojo si hay algún problema o si la extensión no está configurada aún
+* 0.6.1
+  * Resuelto un error que impedía que funcionara correctamente con la apariencia CLASSIC del correo
+* 0.6.0
+  * Compatible con Firefox 2.0
+  * Cambio de icono cuando hay mensajes nuevos sin leer
+  * Ahora directamente abre la página de la bandeja de entrada con lo que además deja de aparecer el nombre de usuario y la contraseña en la barra de direcciones
+  * Iconos con fondo transparente
+* 0.5.0
+  * Diálogo de opciones para introducir nombre de usuario, contraseña, servidor, idioma e intervalo de chequeo
+  * Aumentado el número de caracteres para el nombre de usuario y contraseña a 18
+  * Traducciones a euskera, castellano e inglés
+  * Posibilidad de ir a la página principal del correo
+* 0.1.0
+  * Versión inicial
 
 ## Capturas de pantalla
 
-![Screenshot 1](screenshots/filename.png "Screenshot 1")
+![Screenshot 1](https://github.com/borjator/ehu-mail-notifier/raw/master/screenshots/filename.png "Screenshot 1")
 ![Screenshot 2](screenshots/filename.png "Screenshot 2")
 ![Screenshot 3](screenshots/filename.png "Screenshot 3")
 ![Screenshot 4](screenshots/filename.png "Screenshot 4")
